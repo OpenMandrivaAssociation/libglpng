@@ -17,6 +17,7 @@ Patch0:		libglpng-1.45-debian.patch
 URL:		http://packages.debian.org/libglpng
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	png-devel
+BuildRequires:	GL-devel
 
 %description
 glpng is a small toolkit to make loading PNG image files as an OpenGL
