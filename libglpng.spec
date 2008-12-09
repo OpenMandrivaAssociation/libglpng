@@ -47,7 +47,7 @@ texture as easy as possible.
 install -m 0644 %{SOURCE1} ./Makefile
 
 %build
-%make CFLAGS="%{optflags} -I ./include"
+%make CFLAGS="%{optflags} -fPIC -I ./include"
 
 %install
 rm -rf %{buildroot}
