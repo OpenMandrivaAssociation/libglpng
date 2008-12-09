@@ -53,6 +53,9 @@ install -m 0644 %{SOURCE1} ./Makefile
 rm -rf %{buildroot}
 make DESTDIR=%{buildroot}%{_prefix} install
 rm -rf %{buildroot}%{_docdir}
+%ifarch x86_64
+mv %{buildroot}%{_prefix}/lib %{buildroot}%{_libdir}
+%endif
 
 %clean
 rm -rf %{buildroot}
