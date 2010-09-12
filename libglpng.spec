@@ -5,7 +5,7 @@
 Summary:	A toolkit for loading PNG images as OpenGL textures
 Name:		libglpng
 Version:	1.45
-Release:	%{mkrel 4}
+Release:	%mkrel 5
 License:	MIT
 Group:		System/Libraries
 # Upstream's dead
@@ -14,6 +14,7 @@ Source0:	http://ftp.de.debian.org/debian/pool/main/libg/%{name}/%{name}_%{versio
 Source1:	libglpng-1.45-makefile
 # Debian patch, couple of small fixes.
 Patch0:		libglpng-1.45-debian.patch
+Patch1:		libglpng-1.45-CVE-2010-1519.diff
 URL:		http://packages.debian.org/libglpng
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	png-devel
@@ -44,6 +45,8 @@ texture as easy as possible.
 %prep
 %setup -q -n %{name}-%{version}.orig
 %patch0 -p1 -b .debian
+%patch1 -p0 -b .CVE-2010-1519
+
 install -m 0644 %{SOURCE1} ./Makefile
 
 %build
