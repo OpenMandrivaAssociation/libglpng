@@ -5,7 +5,7 @@
 Summary:	A toolkit for loading PNG images as OpenGL textures
 Name:		libglpng
 Version:	1.45
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	MIT
 Group:		System/Libraries
 # Upstream's dead
