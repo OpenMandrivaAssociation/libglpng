@@ -15,6 +15,7 @@ Source1:	libglpng-1.45-makefile
 # Debian patch, couple of small fixes.
 Patch0:		libglpng-1.45-debian.patch
 Patch1:		libglpng-1.45-CVE-2010-1519.diff
+Patch2:		glpng-1.45-libpng15.patch
 URL:		http://packages.debian.org/libglpng
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	png-devel
@@ -46,6 +47,7 @@ texture as easy as possible.
 %setup -q -n %{name}-%{version}.orig
 %patch0 -p1 -b .debian
 %patch1 -p0 -b .CVE-2010-1519
+%patch2 -p1 -b .libpng15
 
 install -m 0644 %{SOURCE1} ./Makefile
 
