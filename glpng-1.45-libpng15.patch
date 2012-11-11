@@ -1,0 +1,42 @@
+diff -Naurp libglpng-1.45.orig/include/GL/glpng.h libglpng-1.45.orig.oden/include/GL/glpng.h
+--- libglpng-1.45.orig/include/GL/glpng.h	2000-07-10 15:27:00.000000000 -0400
++++ libglpng-1.45.orig.oden/include/GL/glpng.h	2011-10-04 12:51:00.325538188 -0400
+@@ -57,7 +57,7 @@ extern "C" {
+ #define PNG_SIMPLEMIPMAP PNG_SIMPLEMIPMAPS
+ 
+ /* Transparency parameters */
+-#define PNG_CALLBACK  -3 /* Call the callback function to generate alpha   */
++#define PNG_CALLBACKT  -3 /* Call the callback function to generate alpha   */
+ #define PNG_ALPHA     -2 /* Use alpha channel in PNG file, if there is one */
+ #define PNG_SOLID     -1 /* No transparency                                */
+ #define PNG_STENCIL    0 /* Sets alpha to 0 for r=g=b=0, 1 otherwise       */
+diff -Naurp libglpng-1.45.orig/src/glpng.c libglpng-1.45.orig.oden/src/glpng.c
+--- libglpng-1.45.orig/src/glpng.c	2011-10-04 12:51:25.625540522 -0400
++++ libglpng-1.45.orig.oden/src/glpng.c	2011-10-04 12:51:00.325538188 -0400
+@@ -282,7 +282,7 @@ int APIENTRY pngLoadRawF(FILE *fp, pngRa
+ 	if (!endinfo) return 0;
+ 
+ 	// DH: added following lines
+-	if (setjmp(png->jmpbuf))
++	if (setjmp(png_jmpbuf(png)))
+ 	{
+ error:
+ 		png_destroy_read_struct(&png, &info, &endinfo);
+@@ -402,7 +402,7 @@ int APIENTRY pngLoadF(FILE *fp, int mipm
+ 	if (!endinfo) return 0;
+ 
+ 	// DH: added following lines
+-	if (setjmp(png->jmpbuf))
++	if (setjmp(png_jmpbuf(png)))
+ 	{
+ error:
+ 		png_destroy_read_struct(&png, &info, &endinfo);
+@@ -603,7 +603,7 @@ error:
+ 			#define ALPHA *q
+ 
+ 			switch (trans) {
+-				case PNG_CALLBACK:
++				case PNG_CALLBACKT:
+ 					FORSTART
+ 						ALPHA = AlphaCallback((unsigned char) r, (unsigned char) g, (unsigned char) b);
+ 					FOREND
