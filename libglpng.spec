@@ -1,6 +1,7 @@
 %define major	1
 %define libname	%mklibname glpng %{major}
 %define devname	%mklibname glpng -d
+%define staticname %mklibname glpng -d -s
 
 Summary:	A toolkit for loading PNG images as OpenGL textures
 Name:		libglpng
@@ -42,6 +43,15 @@ Provides:	%{name}-devel = %{version}-%{release}
 glpng is a small toolkit to make loading PNG image files as an OpenGL
 texture as easy as possible.
 
+%package -n %{staticname}
+Summary:	Static libraries for %{name}
+Group:		Development/C
+Requires:	%{devname} = %{version}-%{release}
+
+%description -n %{staticname}
+glpng is a small toolkit to make loading PNG image files as an OpenGL
+texture as easy as possible.
+
 %prep
 %setup -qn %{name}-%{version}.orig
 %patch0 -p1 -b .debian
@@ -70,3 +80,5 @@ chmod 0755 %{buildroot}%{_libdir}/*.so.%{major}*
 %{_includedir}/GL/glpng.h
 %{_libdir}/%{name}.so
 
+%files -n %{staticname}
+%{_libdir}/%{name}.a
