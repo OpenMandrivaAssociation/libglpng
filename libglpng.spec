@@ -66,7 +66,7 @@ install -m 0644 %{SOURCE1} ./Makefile
 %install
 make DESTDIR=%{buildroot}%{_prefix} install
 rm -rf %{buildroot}%{_docdir}
-%ifarch x86_64
+%if "%{_libdir}" != "%{_prefix}/lib"
 mv %{buildroot}%{_prefix}/lib %{buildroot}%{_libdir}
 %endif
 
