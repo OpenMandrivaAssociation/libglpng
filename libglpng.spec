@@ -6,7 +6,7 @@
 Summary:	A toolkit for loading PNG images as OpenGL textures
 Name:		libglpng
 Version:	1.45
-Release:	19
+Release:	20
 License:	MIT
 Group:		System/Libraries
 Url:		http://packages.debian.org/libglpng
