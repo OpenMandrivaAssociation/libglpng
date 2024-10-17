@@ -9,7 +9,7 @@ Version:	1.45
 Release:	21
 License:	MIT
 Group:		System/Libraries
-Url:		http://packages.debian.org/libglpng
+Url:		https://packages.debian.org/libglpng
 # Upstream's dead
 Source0:	http://ftp.de.debian.org/debian/pool/main/libg/%{name}/%{name}_%{version}.orig.tar.gz
 # From Debian - a Makefile. Yay.
