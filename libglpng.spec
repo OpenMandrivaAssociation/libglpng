@@ -18,6 +18,7 @@ Source1:	libglpng-1.45-makefile
 Patch0:		libglpng-1.45-debian.patch
 Patch1:		libglpng-1.45-CVE-2010-1519.diff
 Patch2:		glpng-1.45-libpng15.patch
+BuildRequires:	make
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(gl)
 
